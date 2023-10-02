@@ -2,8 +2,9 @@
 
 import { defineConfig } from 'vite';
 import { angular } from '@nitedani/vite-plugin-angular/plugin';
-import tsconfigPaths from 'vite-tsconfig-paths';
+import tsConfigPaths from 'vite-tsconfig-paths';
 import vavite from 'vavite';
+import vercel from 'vite-plugin-vercel';
 
 export default defineConfig({
   buildSteps: [
@@ -25,6 +26,9 @@ export default defineConfig({
       serverEntry: '/src/server/main.ts',
       serveClientAssetsInDev: true,
     }),
-    tsconfigPaths(),
+    tsConfigPaths({
+      root: '../../',
+    }),
+    vercel(),
   ],
 });

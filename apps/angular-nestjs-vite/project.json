@@ -7,6 +7,30 @@
   "tags": [],
   "targets": {
     "build": {
+      "executor": "nx:run-commands",
+      "outputs": [
+        "{options.outputPath}",
+        "{workspaceRoot}/dist/client",
+        "{workspaceRoot}/dist/server"
+      ],
+
+      "options": {
+        "cwd": "apps/angular-nestjs-vite",
+        "command": "vavite"
+      },
+     
+      "defaultConfiguration": "production",
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "sourcemap": false,
+          "mode": "production"
+        }
+      }
+    },
+    "build-dev": {
       "executor": "@nx/vite:build",
       "outputs": [
         "{options.outputPath}",
@@ -34,16 +58,16 @@
       "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "angular-nestjs-vite:build",
+        "buildTarget": "angular-nestjs-vite:build-dev",
         "port": 5200
       },
       "configurations": {
         "development": {
-          "buildTarget": "angular-nestjs-vite:build:development",
+          "buildTarget": "angular-nestjs-vite:build-dev:development",
           "hmr": true
         },
         "production": {
-          "buildTarget": "angular-nestjs-vite:build:production"
+          "buildTarget": "angular-nestjs-vite:build-dev:production"
         }
       }
     },
