@@ -7,59 +7,45 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@nx/vite:build",
+      "outputs": [
+        "{options.outputPath}",
+        "{workspaceRoot}/dist/client",
+        "{workspaceRoot}/dist/server"
+      ],
       "options": {
-        "outputPath": "dist/apps/angular-nestjs-vite",
-        "index": "apps/angular-nestjs-vite/src/index.html",
         "main": "apps/angular-nestjs-vite/src/main.ts",
-        "polyfills": ["zone.js"],
-        "tsConfig": "apps/angular-nestjs-vite/tsconfig.app.json",
-        "assets": [
-          "apps/angular-nestjs-vite/src/favicon.ico",
-          "apps/angular-nestjs-vite/src/assets"
-        ],
-        "styles": ["apps/angular-nestjs-vite/src/styles.scss"],
-        "scripts": []
+        "configFile": "apps/angular-nestjs-vite/vite.config.ts",
+        "logLevel": "info",
+        "outputPath": "dist/apps/angular-nestjs-vite/client"
       },
+      "defaultConfiguration": "production",
       "configurations": {
-        "production": {
-          "budgets": [
-            {
-              "type": "initial",
-              "maximumWarning": "500kb",
-              "maximumError": "1mb"
-            },
-            {
-              "type": "anyComponentStyle",
-              "maximumWarning": "2kb",
-              "maximumError": "4kb"
-            }
-          ],
-          "outputHashing": "all"
-        },
         "development": {
-          "buildOptimizer": false,
-          "optimization": false,
-          "vendorChunk": true,
-          "extractLicenses": false,
-          "sourceMap": true,
-          "namedChunks": true
+          "mode": "development"
+        },
+        "production": {
+          "sourcemap": false,
+          "mode": "production"
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
-      "configurations": {
-        "production": {
-          "browserTarget": "angular-nestjs-vite:build:production"
-        },
-        "development": {
-          "browserTarget": "angular-nestjs-vite:build:development"
-        }
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "angular-nestjs-vite:build",
+        "port": 5200
       },
-      "defaultConfiguration": "development"
+      "configurations": {
+        "development": {
+          "buildTarget": "angular-nestjs-vite:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "angular-nestjs-vite:build:production"
+        }
+      }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
@@ -67,28 +53,15 @@
         "browserTarget": "angular-nestjs-vite:build"
       }
     },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{projectRoot}/coverage"]
+    },
     "lint": {
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "apps/angular-nestjs-vite/**/*.ts",
-          "apps/angular-nestjs-vite/**/*.html"
-        ]
-      }
-    },
-    "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
-      "options": {
-        "jestConfig": "apps/angular-nestjs-vite/jest.config.ts",
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
+        "lintFilePatterns": ["apps/angular-nestjs-vite/**/*.{ts,html}"]
       }
     }
   }

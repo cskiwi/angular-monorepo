@@ -1,7 +1,10 @@
-import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
+import { renderPage } from '@nitedani/vite-plugin-angular/client';
+import { provideHttpClient } from '@angular/common/http';
 import { AppComponent } from './app/app.component';
+import { SharedModule } from './shared.module';
 
-bootstrapApplication(AppComponent, appConfig).catch((err) =>
-  console.error(err)
-);
+renderPage({
+  page: AppComponent,
+  imports: [SharedModule],
+  providers: [provideHttpClient()],
+});
