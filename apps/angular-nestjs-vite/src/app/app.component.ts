@@ -5,9 +5,6 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [RouterModule],
   selector: 'angular-monorepo-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  template: `<router-outlet></router-outlet>`,
 })
-export class AppComponent {
-  title = 'angular-nestjs-vite';
-}
+export class AppComponent {}

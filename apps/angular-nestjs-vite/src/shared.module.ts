@@ -9,9 +9,5 @@ import { NgModule } from '@angular/core';
   providers: [],
 })
 export class SharedModule {
-  constructor() {
-    console.log(
-      'This is a shared module, it is imported on client and server.'
-    );
-  }
+  constructor() {}
 }
