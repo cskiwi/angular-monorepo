@@ -7,6 +7,10 @@ import vavite from 'vavite';
 import vercel from 'vite-plugin-vercel';
 
 export default defineConfig({
+  test: {
+    globals: true,
+    environment: 'jsdom',
+  },
   plugins: [
     angular(),
     vavite({
