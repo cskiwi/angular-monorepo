@@ -13,12 +13,18 @@
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "executor": "@nx/eslint:lint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/angular-nestjs-vite-e2e/**/*.{js,ts}"]
+        "lintFilePatterns": [
+          "apps/angular-nestjs-vite-e2e/**/*.{js,ts}"
+        ]
       }
     }
   },
-  "implicitDependencies": ["angular-nestjs-vite"]
+  "implicitDependencies": [
+    "angular-nestjs-vite"
+  ]
 }

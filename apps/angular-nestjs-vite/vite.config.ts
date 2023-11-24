@@ -7,19 +7,6 @@ import vavite from 'vavite';
 import vercel from 'vite-plugin-vercel';
 
 export default defineConfig({
-  buildSteps: [
-    {
-      name: 'client',
-    },
-    {
-      name: 'server',
-      config: {
-        build: {
-          ssr: true,
-        },
-      },
-    },
-  ],
   plugins: [
     angular(),
     vavite({

@@ -13,12 +13,10 @@
         "{workspaceRoot}/dist/client",
         "{workspaceRoot}/dist/server"
       ],
-
       "options": {
         "cwd": "apps/angular-nestjs-vite",
-        "command": "vavite"
+        "command": "vite build && vite build --ssr"
       },
-     
       "defaultConfiguration": "production",
       "configurations": {
         "development": {
@@ -74,18 +72,24 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "angular-nestjs-vite:build"
+        "buildTarget": "angular-nestjs-vite:build"
       }
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["{projectRoot}/coverage"]
+      "outputs": [
+        "{projectRoot}/coverage"
+      ]
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "executor": "@nx/eslint:lint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/angular-nestjs-vite/**/*.{ts,html}"]
+        "lintFilePatterns": [
+          "apps/angular-nestjs-vite/**/*.{ts,html}"
+        ]
       }
     }
   }
