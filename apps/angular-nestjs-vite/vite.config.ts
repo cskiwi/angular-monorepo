@@ -4,6 +4,7 @@ import { vavite } from 'vavite';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+  publicDir: 'src/public',
   plugins: [
     angular(),
     vavite({
