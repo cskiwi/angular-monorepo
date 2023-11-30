@@ -11,7 +11,7 @@
       "node"
     ],
   },
-  "files": ["src/main.ts", "src/server/main.ts", "vite.config.ts"],
+  "files": ["src/app/main.ts", "src/server/main.ts", "vite.config.ts"],
   "include": [
     "src/**/*"
   ],

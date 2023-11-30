@@ -1,10 +1,7 @@
-/// <reference types="vavite/vite-config" />
-
-import { defineConfig } from 'vite';
 import { angular } from '@nitedani/vite-plugin-angular/plugin';
-import tsConfigPaths from 'vite-tsconfig-paths';
-import vavite from 'vavite';
-import vercel from 'vite-plugin-vercel';
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
+import { vavite } from 'vavite';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
   plugins: [
@@ -13,9 +10,6 @@ export default defineConfig({
       serverEntry: '/src/server/main.ts',
       serveClientAssetsInDev: true,
     }),
-    tsConfigPaths({
-      root: '../../',
-    }),
-    vercel(),
+    nxViteTsPaths(),
   ],
 });
