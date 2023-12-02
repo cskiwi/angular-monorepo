@@ -39,7 +39,7 @@
         "main": "apps/angular-nestjs-vite/src/main.ts",
         "configFile": "apps/angular-nestjs-vite/vite.config.ts",
         "logLevel": "info",
-        "outputPath": "dist/apps/angular-nestjs-vite/client"
+        "outputPath": "dist/apps/angular-nestjs-vite"
       },
       "defaultConfiguration": "production",
       "configurations": {
@@ -77,14 +77,15 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["{projectRoot}/coverage"]
+      "outputs": [
+        "{projectRoot}/coverage"
+      ]
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["apps/angular-nestjs-vite/**/*.{ts,html}"]
-      }
+      "outputs": [
+        "{options.outputFile}"
+      ]
     }
   }
 }

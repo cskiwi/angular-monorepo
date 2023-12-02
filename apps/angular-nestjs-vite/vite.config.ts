@@ -1,21 +1,20 @@
-/// <reference types="vavite/vite-config" />
-
-import { defineConfig } from 'vite';
 import { angular } from '@nitedani/vite-plugin-angular/plugin';
-import tsConfigPaths from 'vite-tsconfig-paths';
-import vavite from 'vavite';
-import vercel from 'vite-plugin-vercel';
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
+import { vavite } from 'vavite';
+import { defineConfig, splitVendorChunkPlugin } from 'vite';
 
-export default defineConfig({
+export default defineConfig({root: __dirname,
+  publicDir: 'src/public',
+  build: {
+    outDir: '../../dist/angular-nestjs-vite/gull'
+  },
   plugins: [
     angular(),
     vavite({
       serverEntry: '/src/server/main.ts',
       serveClientAssetsInDev: true,
     }),
-    tsConfigPaths({
-      root: '../../',
-    }),
-    vercel(),
+    nxViteTsPaths(),
+    splitVendorChunkPlugin(),
   ],
 });
