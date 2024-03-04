@@ -21,25 +21,25 @@
       "@angular-nestjs-vite/backend-database": [
         "libs/backend/database/src/index.ts"
       ],
-      "@angular-nestjs-vite/frontend-public": [
-        "libs/frontend/pages/public/src/index.ts"
+      "@angular-nestjs-vite/backend-graphql": [
+        "libs/backend/graphql/src/index.ts"
       ],
+      "@angular-nestjs-vite/backend-sync": ["libs/backend/sync/src/index.ts"],
       "@angular-nestjs-vite/frontend-components": [
         "libs/frontend/components/src/index.ts"
       ],
       "@angular-nestjs-vite/frontend-private": [
         "libs/frontend/pages/private/src/index.ts"
       ],
+      "@angular-nestjs-vite/frontend-public": [
+        "libs/frontend/pages/public/src/index.ts"
+      ],
       "@angular-nestjs-vite/frontend-welcome": [
         "libs/frontend/pages/welcome/src/index.ts"
       ],
       "@angular-nestjs-vite/frontend/modules/auth": [
         "libs/frontend/modules/auth/src/index.ts"
-      ],
-      "@angular-nestjs-vite/backend-graphql": [
-        "libs/backend/graphql/src/index.ts"
-      ],
-      "@angular-nestjs-vite/backend-sync": ["libs/backend/sync/src/index.ts"]
+      ]
     }
   },
   "include": ["env.d.ts"],

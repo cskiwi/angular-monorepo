@@ -4,6 +4,22 @@ import { vavite } from 'vavite';
 import { defineConfig, splitVendorChunkPlugin } from 'vite';
 
 export default defineConfig({
+  cacheDir: '../../node_modules/.vite/apps/angular-nestjs-vite',
+  test: {
+    globals: true,
+    cache: {
+      dir: '../../node_modules/.vitest',
+    },
+    environment: 'jsdom',
+    passWithNoTests: true,
+    include: ['src/**/*.{test,spec}.{js,mjs,ts,mts,cts,jsx,tsx}'],
+
+    reporters: ['default'],
+    coverage: {
+      reportsDirectory: '../../coverage/apps/angular-nestjs-vite',
+      provider: 'v8',
+    },
+  },
   publicDir: 'src/public',
   build: {
     outDir: '../../dist/apps/angular-nestjs-vite',
