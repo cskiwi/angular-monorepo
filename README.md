@@ -14,7 +14,7 @@ This template uses **SSR** (Server Side Rendering).
 
 ### pre-requisites
 Following things should be installed / available on your machine before you start:
-- postgres
+- postgres (can be different but requires configuration in the [orm.config.ts](./libs/backend/database/src/orm.config.ts) file )
 - node
 - npm
 - Auth0 account
@@ -23,7 +23,7 @@ Following things should be installed / available on your machine before you star
 1. Click the "Use this template" button on the top right of the repository.
 2. Clone the repository to your local machine.
 3. Run `npm install` in the root of the project.
-4. update the `.env` file with your Auth0 and Postgress credentials.
+4. copy / change the `.env.exmample` file to `.env` and fill in the required fields.
 5. Run `npm run start` to start the project.
 
 ## License

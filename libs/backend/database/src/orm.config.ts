@@ -17,7 +17,7 @@ export const ormConfig = {
   database: process.env['DB_DATABASE'],
   ssl: process.env['DB_SSL'] === 'true' ? { rejectUnauthorized: false } : false,
   migrationsTableName: 'typeorm_migrations',
-  applicationName: 'angular-nestjs-vite',
+  applicationName: process.env['VITE_APP_ID'],
   options: { trustServerCertificate: true },
   // below is a fix so that the migrations can run because they are typescript
   migrations: addMigrations
