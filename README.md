@@ -2,16 +2,22 @@
 
 ## Features included
 
-A full on starter template for a full stack application. This includes a front end and a back end. The front end is built with Angular and Angular Material. The back end is built with NestJs and TypeORM. The front end and back end are both secured with Auth0.
+A full stack application template. 
+- Nx monorepo for optimal code sharing and scalability.
+- The front end is built with **Angular** and **Angular Material**. 
+- The back end is built with **NestJs** and **TypeORM**. 
+- The front end and back end are both secured with **Auth0**.
 
-This template includes a SSR (Server Side Rendering).
+This template uses **SSR** (Server Side Rendering).
 
 ## Getting started
 
-### prerequisites
+### pre-requisites
+Following things should be installed / available on your machine before you start:
 - postgres
 - node
 - npm
+- Auth0 account
 
 ### Installation
 1. Click the "Use this template" button on the top right of the repository.
@@ -21,7 +27,7 @@ This template includes a SSR (Server Side Rendering).
 5. Run `npm run start` to start the project.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 
 ## Known issues
