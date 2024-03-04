@@ -1,12 +1,18 @@
+import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import type { Express } from 'express';
 import httpDevServer from 'vavite/http-dev-server';
 import { AppModule } from './app.module';
 
-bootstrap();
+try {
+  bootstrap();
+} catch (error) {
+  Logger.error(error);
+}
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
   app.setGlobalPrefix('api');
 
   if (import.meta.env.PROD) {
@@ -15,6 +21,6 @@ async function bootstrap() {
   } else {
     await app.init();
     const expressApp = (await app.getHttpAdapter().getInstance()) as Express;
-    httpDevServer!.on('request', expressApp);
+    if (httpDevServer) httpDevServer.on('request', expressApp);
   }
 }

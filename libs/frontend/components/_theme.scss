@@ -1,0 +1,25 @@
+@use '@angular/material' as mat;
+@use './src/navigation/navigation.component.theme.scss' as navigation;
+
+
+@mixin typography($theme) {
+  @include navigation.typography($theme);
+}
+
+@mixin color($theme) {
+  @include navigation.color($theme);
+}
+
+
+@mixin theme($theme) {
+  // Only apply theme on the correct element
+  $color-config: mat.get-color-config($theme);
+  @if $color-config != null {
+    @include color($theme);
+  }
+
+  $typography-config: mat.get-typography-config($theme);
+  @if $typography-config != null {
+    @include typography($theme);
+  }
+}

@@ -28,44 +28,20 @@
         }
       }
     },
-    "build-dev": {
-      "executor": "@nx/vite:build",
-      "outputs": [
-        "{options.outputPath}",
-        "{workspaceRoot}/dist/client",
-        "{workspaceRoot}/dist/server"
-      ],
-      "options": {
-        "main": "apps/angular-nestjs-vite/src/main.ts",
-        "configFile": "apps/angular-nestjs-vite/vite.config.ts",
-        "logLevel": "info",
-        "outputPath": "dist/apps/angular-nestjs-vite"
-      },
-      "defaultConfiguration": "production",
-      "configurations": {
-        "development": {
-          "mode": "development"
-        },
-        "production": {
-          "sourcemap": false,
-          "mode": "production"
-        }
-      }
-    },
     "serve": {
       "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "angular-nestjs-vite:build-dev",
+        "buildTarget": "angular-nestjs-vite:build",
         "port": 5200
       },
       "configurations": {
         "development": {
-          "buildTarget": "angular-nestjs-vite:build-dev:development",
+          "buildTarget": "angular-nestjs-vite:build:development",
           "hmr": true
         },
         "production": {
-          "buildTarget": "angular-nestjs-vite:build-dev:production"
+          "buildTarget": "angular-nestjs-vite:build:production"
         }
       }
     },
@@ -77,15 +53,11 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": [
-        "{projectRoot}/coverage"
-      ]
+      "outputs": ["{projectRoot}/coverage"]
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": [
-        "{options.outputFile}"
-      ]
+      "outputs": ["{options.outputFile}"]
     }
   }
 }

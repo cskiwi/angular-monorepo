@@ -28,10 +28,7 @@ node_modules
 /.sass-cache
 /connect.lock
 /coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
+*.log
 /typings
 
 # System Files
@@ -39,5 +36,30 @@ testem.log
 Thumbs.db
 
 .angular
+.env
+.cache
+
+/database/backup
+assembly.html
+
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 .vercel
+
+*.cp
+!empty.cp
+*.ldb
+*.csv
+*.xlsx
+
+.obsidian/workspace.json
+files/
 .nx/cache
+playwright-report/
+blob-report/
+.nx/
