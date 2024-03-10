@@ -26,8 +26,6 @@ async function bootstrap() {
     }
 
     globalApp = await NestFactory.create(AppModule);
-    await globalApp.listen(3000);
-
     await globalApp.init();
     const expressApp = (await globalApp
       .getHttpAdapter()
