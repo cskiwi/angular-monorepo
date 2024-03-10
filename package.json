@@ -27,6 +27,7 @@
     "@angular/platform-server": "^17.2.3",
     "@angular/router": "^17.2.3",
     "@apollo/client": "^3.9.5",
+    "@apollo/server": "^4.10.0",
     "@auth0/auth0-angular": "^2.2.3",
     "@changesets/cli": "^2.27.1",
     "@fontsource/roboto": "5.0.8",

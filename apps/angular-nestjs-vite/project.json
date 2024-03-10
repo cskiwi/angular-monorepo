@@ -28,36 +28,12 @@
         }
       }
     },
-    "serve": {
-      "executor": "@nx/vite:dev-server",
-      "defaultConfiguration": "development",
-      "options": {
-        "buildTarget": "angular-nestjs-vite:build",
-        "port": 5200
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "angular-nestjs-vite:build:development",
-          "hmr": true
-        },
-        "production": {
-          "buildTarget": "angular-nestjs-vite:build:production"
-        }
-      }
-    },
+
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
         "buildTarget": "angular-nestjs-vite:build"
       }
-    },
-    "test": {
-      "executor": "@nx/vite:test",
-      "outputs": ["{projectRoot}/coverage"]
-    },
-    "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
     }
   }
 }

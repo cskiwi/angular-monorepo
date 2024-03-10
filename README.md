@@ -32,4 +32,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Known issues
 - When running the build it will throw `ERROR RuntimeError: NG04002: Cannot match any routes. URL Segment: '@angular/compiler.mjs.map'` however the build will still work.
-- Changing a NestJS service, won't unregister the service from the DI container. see: https://github.com/cyco130/vavite/issues/99
+- [WORKAROUND IMPLEMENTED] Changing a NestJS service, won't unregister the service from the DI container. see: https://github.com/cyco130/vavite/issues/99

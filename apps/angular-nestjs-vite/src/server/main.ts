@@ -11,16 +11,27 @@ try {
 }
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-
-  app.setGlobalPrefix('api');
-
   if (import.meta.env.PROD) {
+    const app = await NestFactory.create(AppModule);
+    app.setGlobalPrefix('api');
     const port = import.meta.env.VITE_PORT || 3000;
     app.listen(port);
   } else {
-    await app.init();
-    const expressApp = (await app.getHttpAdapter().getInstance()) as Express;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let globalApp = (global as any).__app;
+
+    if (globalApp) {
+      console.log('Reloading server...');
+      globalApp.close();
+    }
+
+    globalApp = await NestFactory.create(AppModule);
+    await globalApp.listen(3000);
+
+    await globalApp.init();
+    const expressApp = (await globalApp
+      .getHttpAdapter()
+      .getInstance()) as Express;
     if (httpDevServer) httpDevServer.on('request', expressApp);
   }
 }

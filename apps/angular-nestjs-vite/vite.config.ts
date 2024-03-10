@@ -1,3 +1,4 @@
+/// <reference types='vitest' />
 import { angular } from '@nitedani/vite-plugin-angular/plugin';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import { vavite } from 'vavite';
@@ -37,8 +38,10 @@ export default defineConfig({
     splitVendorChunkPlugin(),
   ],
   server: {
+    port: 5200,
     fs: {
       allow: [
+        'src/',
         '../../node_modules/@fontsource/roboto/files/',
         '../../node_modules/material-icons/iconfont/',
       ],
