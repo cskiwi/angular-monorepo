@@ -1,7 +1,7 @@
 {
   "name": "frontend-public",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/frontend/pages/clients/src",
+  "sourceRoot": "libs/frontend/pages/public/src",
   "prefix": "angular-nestjs-vite",
   "tags": [],
   "projectType": "library",
@@ -10,14 +10,14 @@
       "executor": "@nx/angular:ng-packagr-lite",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
-        "project": "libs/frontend/pages/clients/ng-package.json"
+        "project": "libs/frontend/pages/public/ng-package.json"
       },
       "configurations": {
         "production": {
-          "tsConfig": "libs/frontend/pages/clients/tsconfig.lib.prod.json"
+          "tsConfig": "libs/frontend/pages/public/tsconfig.lib.prod.json"
         },
         "development": {
-          "tsConfig": "libs/frontend/pages/clients/tsconfig.lib.json"
+          "tsConfig": "libs/frontend/pages/public/tsconfig.lib.json"
         }
       },
       "defaultConfiguration": "production"
