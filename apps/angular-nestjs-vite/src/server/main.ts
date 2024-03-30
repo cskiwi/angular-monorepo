@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import type { Express } from 'express';
@@ -11,25 +12,20 @@ try {
 }
 
 async function bootstrap() {
+  if ((global as any).__app) {
+    console.log('Reloading server...');
+    await (global as any).__app.close();
+  }
+
+  (global as any).__app = await NestFactory.create(AppModule);
+  (global as any).__app.setGlobalPrefix('api');
+
   if (import.meta.env.PROD) {
-    const app = await NestFactory.create(AppModule);
-    app.setGlobalPrefix('api');
-    const port = import.meta.env.VITE_PORT || 3000;
-    app.listen(port);
+    const port = import.meta.env.VITE_PORT || 8080;
+    (global as any).__app.listen(port);
   } else {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    let globalApp = (global as any).__app;
-
-    if (globalApp) {
-      console.log('Reloading server...');
-      globalApp.close();
-    }
-
-    globalApp = await NestFactory.create(AppModule);
-    await globalApp.init();
-    const expressApp = (await globalApp
-      .getHttpAdapter()
-      .getInstance()) as Express;
+    await (global as any).__app.init();
+    const expressApp = (await (global as any).__app.getHttpAdapter().getInstance()) as Express;
     if (httpDevServer) httpDevServer.on('request', expressApp);
   }
 }
