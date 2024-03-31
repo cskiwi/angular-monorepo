@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { AuthGuard } from '@angular-nestjs-vite/frontend/modules/auth';
+import { AuthGuard } from '@angular-nestjs-vite/frontend-modules-auth';
 
 export const routes: Routes = [
   {

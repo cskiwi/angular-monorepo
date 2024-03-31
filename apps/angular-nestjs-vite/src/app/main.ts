@@ -4,9 +4,9 @@ import { AppComponent } from '../app/app.component';
 import { SharedModule } from '../shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from '@auth0/auth0-angular';
-import { GraphQLModule } from './graphql.module';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { APP_ID } from '@angular/core';
+import { GraphQLModule } from '@angular-nestjs-vite/frontend-modules-graphql';
 
 renderPage({
   page: AppComponent,

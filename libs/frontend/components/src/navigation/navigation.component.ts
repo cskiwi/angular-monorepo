@@ -19,7 +19,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AuthModule } from '@auth0/auth0-angular';
-import { AUTH, USER } from '@angular-nestjs-vite/frontend/modules/auth';
+import { AUTH, USER } from '@angular-nestjs-vite/frontend-modules-auth';
 
 @Component({
   selector: 'angular-nestjs-vite-navigation',

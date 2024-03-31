@@ -3,6 +3,7 @@ import { provideNoopAnimations } from '@angular/platform-browser/animations';
 import { AuthorizationModule } from '@angular-nestjs-vite/backend-authorization';
 import { DatabaseModule } from '@angular-nestjs-vite/backend-database';
 import { GraphqlModule } from '@angular-nestjs-vite/backend-graphql';
+import { HealthModule } from '@angular-nestjs-vite/backend-health';
 import { SyncModule } from '@angular-nestjs-vite/backend-sync';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
@@ -26,6 +27,7 @@ import { SharedModule } from '../shared.module';
     AuthorizationModule,
     GraphqlModule,
     SyncModule,
+    HealthModule,
   ],
   controllers: [],
 })

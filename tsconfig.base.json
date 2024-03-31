@@ -24,6 +24,7 @@
       "@angular-nestjs-vite/backend-graphql": [
         "libs/backend/graphql/src/index.ts"
       ],
+      "@angular-nestjs-vite/backend-health": ["libs/backend/health/src/index.ts"],
       "@angular-nestjs-vite/backend-sync": ["libs/backend/sync/src/index.ts"],
       "@angular-nestjs-vite/frontend-components": [
         "libs/frontend/components/src/index.ts"
@@ -37,8 +38,11 @@
       "@angular-nestjs-vite/frontend-welcome": [
         "libs/frontend/pages/welcome/src/index.ts"
       ],
-      "@angular-nestjs-vite/frontend/modules/auth": [
+      "@angular-nestjs-vite/frontend-modules-auth": [
         "libs/frontend/modules/auth/src/index.ts"
+      ],
+      "@angular-nestjs-vite/frontend-modules-graphql": [
+        "libs/frontend/modules/graphql/src/index.ts"
       ]
     }
   },
