@@ -1,21 +1,18 @@
+import { HttpClientModule } from '@angular/common/http';
+import { APP_ID } from '@angular/core';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { AuthModule } from '@auth0/auth0-angular';
 import { renderPage } from '@nitedani/vite-plugin-angular/client';
 import { AppComponent } from '../app/app.component';
 import { SharedModule } from '../shared.module';
-import { HttpClientModule } from '@angular/common/http';
-import { AuthModule } from '@auth0/auth0-angular';
-import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
-import { APP_ID } from '@angular/core';
-import { GraphQLModule } from '@angular-nestjs-vite/frontend-modules-graphql';
 
 renderPage({
   page: AppComponent,
   imports: [
     SharedModule,
     HttpClientModule,
-    GraphQLModule.forRoot({
-      api: './graphql',
-    }),
+
     AuthModule.forRoot({
       domain: import.meta.env.VITE_AUTH0_ISSUER_URL,
       clientId: import.meta.env.VITE_AUTH0_CLIENT_ID,

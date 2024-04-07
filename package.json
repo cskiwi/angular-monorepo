@@ -126,6 +126,7 @@
     "typescript": "5.4.3",
     "vavite": "^4.1.1",
     "vite": "5.1.4",
+    "vite-plugin-cjs-interop": "^2.1.0",
     "vite-tsconfig-paths": "^4.3.1",
     "vitest": "^1.4.0"
   },

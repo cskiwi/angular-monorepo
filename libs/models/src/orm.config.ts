@@ -10,10 +10,10 @@ config();
 const addMigrations = process.env['RUN_MIGRATIONS']?.trim() === 'true';
 const dbType = process.env['DB_TYPE']?.trim();
 
-// list env vars
-for (const key in process.env) {
-  console.log(`${key}: ${process.env[key]}`);
-}
+// // list env vars
+// for (const key in process.env) {
+//   console.log(`${key}: ${process.env[key]}`);
+// }
     
 
 
