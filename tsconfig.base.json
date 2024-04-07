@@ -43,7 +43,8 @@
       ],
       "@angular-nestjs-vite/frontend-modules-graphql": [
         "libs/frontend/modules/graphql/src/index.ts"
-      ]
+      ],
+      "@angular-nestjs-vite/models": ["libs/models/src/index.ts"]
     }
   },
   "include": ["env.d.ts"],

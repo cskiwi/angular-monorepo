@@ -1,4 +1,4 @@
-import { AppUser } from '@angular-nestjs-vite/backend-database';
+import { AppUser } from '@angular-nestjs-vite/models';
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
 import { env } from 'process';
 import { getRequest } from '../utils';

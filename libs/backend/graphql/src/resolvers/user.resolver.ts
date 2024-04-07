@@ -1,5 +1,5 @@
 import { User } from '@angular-nestjs-vite/backend-authorization';
-import { AppUser } from '@angular-nestjs-vite/backend-database';
+import { AppUser } from '@angular-nestjs-vite/models';
 import { Query, Resolver } from '@nestjs/graphql';
 
 @Resolver()

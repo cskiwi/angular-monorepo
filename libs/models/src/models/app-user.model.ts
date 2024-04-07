@@ -7,7 +7,7 @@ import {
   Unique,
 } from 'typeorm';
 
-@ObjectType()
+@ObjectType('AppUser')
 @Entity('AppUser')
 @Unique(['sub'])
 export class AppUser extends BaseEntity {

@@ -12,7 +12,7 @@ import { Request } from 'express';
 import { JwksClient } from 'jwks-rsa';
 import { getRequest } from '../utils';
 import { ALLOW_ANONYMOUS_META_KEY } from './anonymous.decorator';
-import { AppUser } from '@angular-nestjs-vite/backend-database';
+import { AppUser } from '@angular-nestjs-vite/models';
 
 @Inject() 
 export class PermGuard implements CanActivate {

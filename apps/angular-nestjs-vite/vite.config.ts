@@ -33,6 +33,7 @@ export default defineConfig({
     vavite({
       serverEntry: './src/server/main.ts',
       serveClientAssetsInDev: true,
+      useViteRuntime: true,
     }),
     nxViteTsPaths(),
     splitVendorChunkPlugin(),
